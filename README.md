@@ -16,7 +16,7 @@ The students were given a functioning e-commerce platform and refactor the code 
 
 Throughout the course, I was mixing up Reducer, Context API and Redux, not knowing what functionality belongs to which. After going through this project I have better understanding of what is Reducer, what is Context API and how Redux brings the benefit of Reducer and Context API combined. 
 
-- With Redux, the component inside of <div className="App"> will only run once when the component is called and doesn't have access to the state which is called by `store.getState()`. You need the `Provider` from `react-redux` at root to provide the `store` to child components, and you need to create a function map the redux state to a react component's props and connect that function to the component using `connect`.
+- With Redux, the component inside of `<div className="App">` will only run once when the component is called and doesn't have access to the state which is called by `store.getState()`. You need the `Provider` from `react-redux` at root to provide the `store` to child components, and you need to create a function map the redux state to a react component's props and connect that function to the component using `connect`.
 The following stackoverflow answers were really helpful to solve this issue.
 - [Redux: Component is not updating after state is updated](https://stackoverflow.com/questions/67827184/redux-component-is-not-updating-after-state-is-updated)
 - [React component not updating when store state has changed](https://stackoverflow.com/questions/35917210/react-component-not-updating-when-store-state-has-changed)
