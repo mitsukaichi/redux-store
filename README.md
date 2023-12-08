@@ -1,127 +1,37 @@
-# 22 State: Redux Store (Extra Credit)
+# 22 State: Redux Store 
 
 ## About this project
 
 This project was done as a homework assignment in UC Berkeley Full Stack Coding Bootcamp. 
 The students were given a functioning e-commerce platform and refactor the code to use [Redux](https://redux.js.org/) instead of the Context API.
 
-## User Story
+## Use
 
-```md
-AS a senior engineer working on an e-commerce platform
-I WANT my platform to use Redux to manage global state instead of the Context API
-SO THAT my website's state management is taken out of the React ecosystem
-```
+- deployed link: https://vast-fortress-80312-70af27ef39cc.herokuapp.com/
+- screenshot: ![screenshot](https://github.com/mitsukaichi/redux-store/assets/45612744/8ba3c8d0-616c-47ad-9573-9a83756e9218)
 
-## Acceptance Criteria
+## Things I learnt form this challenge
 
-```md
-GIVEN an e-commerce platform that uses Redux to manage global state
-WHEN I review the app’s store
-THEN I find that the app uses a Redux store instead of the Context API
-WHEN I review the way the React front end accesses the store
-THEN I find that the app uses a Redux provider
-WHEN I review the way the app determines changes to its global state
-THEN I find that the app passes reducers to a Redux store instead of using the Context API
-WHEN I review the way the app extracts state data from the store
-THEN I find that the app uses Redux instead of the Context API
-WHEN I review the way the app dispatches actions
-THEN I find that the app uses Redux instead of the Context API
-```
+- Difference between Reducer, Context API and Redux
 
-## Mock-Up
+Throughout the course, I was mixing up Reducer, Context API and Redux, not knowing what functionality belongs to which. After going through this project I have better understanding of what is Reducer, what is Context API and how Redux brings the benefit of Reducer and Context API combined. 
 
-This section reviews the web application's general appearance and functionality.
+- With Redux, the component inside of <div className="App"> will only run once when the component is called and doesn't have access to the state which is called by `store.getState()`. You need the `Provider` from `react-redux` at root to provide the `store` to child components, and you need to create a function map the redux state to a react component's props and connect that function to the component using `connect`.
+The following stackoverflow answers were really helpful to solve this issue.
+- [Redux: Component is not updating after state is updated](https://stackoverflow.com/questions/67827184/redux-component-is-not-updating-after-state-is-updated)
+- [React component not updating when store state has changed](https://stackoverflow.com/questions/35917210/react-component-not-updating-when-store-state-has-changed)
 
-The following animation shows how a user can register using the Signup page and then navigate to the Products page:
+## License
 
-![A user registers on the Signup page and then navigates to the Products page, which displays images and descriptions of products.](./Assets/22-state-homework-demo-01.gif)
+MIT License
 
-The following animation shows how the user can select a category, choose a product, view details about it on the product page, and add and remove it from their shopping cart:
+Copyright (c) [2023] [Minami Mukai]
 
-![The user selects a category, chooses a product, views details about it on the product page, and adds it to and removes it from their shopping cart.](./Assets/22-state-homework-demo-02.gif)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-Finally, the user can check out by going to their shopping cart, as shown in the following animation:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-![The user checks out by going to their shopping cart.](./Assets/22-state-homework-demo-03.gif)
-
-## Getting Started
-
-For instructions to add Redux to your application, refer to the [Redux Fundamentals basic tutorial](https://redux.js.org/basics/basic-tutorial). Note that the documentation will refer to additional packages that you'll need to complete this implementation.
-
-Be sure to review ALL of the documentation, because there are newer methods that can make these tools much easier to implement. React has gone through several iterations; as such, some React-and-Redux tutorials will assume that you aren't using Hooks.
-
-You'll use the Stripe API to process payments, which includes making front-end and back-end changes. Don't worry, Stripe provides test credentials, so you won't need to use a real credit card to try it out. Refer to the [Stripe docs on testing your integration](https://stripe.com/docs/testing).
-
-**Important**: The Challenge requires a specific version `(>=7.0)` of `npm` in order to install peer dependencies like GraphQL when deploying to Heroku. By default, Heroku uses `npm 6.x`, which may cause some issues. Be sure to refer to the [Heroku Docs on Specifying an NPM Version](https://devcenter.heroku.com/articles/nodejs-support#specifying-an-npm-version) to ensure your `package.json` file is set up correctly, as shown in the following snippet:
-
-  ```json
-  {
-    "engines": {
-      "npm": "7.x"
-    }
-  }
-  ```
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Retains all the functionality of the original application.
-
-  * Application must be deployed to Heroku.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* User experience is intuitive and easy to navigate.
-
-* User interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains high-quality README file with description, screenshot, and link to the deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
