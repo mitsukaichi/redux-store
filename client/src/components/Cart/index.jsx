@@ -6,6 +6,7 @@ import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import  store  from '../../utils/GlobalState';
+import { connect } from 'react-redux';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 
@@ -13,7 +14,7 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-  const state = store.getState();
+  const { cart } = store.getState();
 
   useEffect(() => {
     if (data) {
@@ -29,10 +30,10 @@ const Cart = () => {
       store.dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
 
-    if (!state.cart.length) {
+    if (!cart.length) {
       getCart();
     }
-  }, [state.cart.length]);
+  }, [cart.length]);
 
   function toggleCart() {
     store.dispatch({ type: TOGGLE_CART });
@@ -40,7 +41,7 @@ const Cart = () => {
 
   function calculateTotal() {
     let sum = 0;
-    state.cart.forEach((item) => {
+    cart.forEach((item) => {
       sum += item.price * item.purchaseQuantity;
     });
     return sum.toFixed(2);
@@ -76,9 +77,9 @@ const Cart = () => {
         [close]
       </div>
       <h2>Shopping Cart</h2>
-      {store.getState().cart.length ? (
+      {cart.length ? (
         <div>
-          {store.getState().cart.map((item) => (
+          {cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
 
@@ -104,4 +105,11 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cart,
+    cartOpen: state.cartOpen
+  }
+}
+
+export default connect(mapStateToProps)(Cart);

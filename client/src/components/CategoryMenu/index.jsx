@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import  store  from '../../utils/GlobalState';
+import { connect } from 'react-redux';
 import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
@@ -64,4 +65,10 @@ function CategoryMenu() {
   );
 }
 
-export default CategoryMenu;
+const mapStateToProps = (state) => {
+  return {
+    categories: state.categories
+  }
+}
+
+export default connect(mapStateToProps)(CategoryMenu);
